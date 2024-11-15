@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Книги в категории {{ category.name }}</h1>
+    <ul>
+        {% for book in books %}
+            <li>{{ book.title }} by {{ book.author }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

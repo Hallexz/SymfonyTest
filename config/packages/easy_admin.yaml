@@ -1,0 +1,14 @@
+easy_admin:
+  entities:
+    Book:
+      class: App\Entity\Book
+      controller: App\Controller\Admin\BookCrudController
+    Category:
+      class: App\Entity\Category
+      controller: App\Controller\Admin\CategoryCrudController
+    ContactRequest:
+      class: App\Entity\ContactRequest
+      controller: App\Controller\Admin\ContactRequestCrudController
+    Admin:
+      class: App\Entity\Admin
+      controller: App\Controller\Admin\AdminCrudController

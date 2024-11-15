@@ -26,14 +26,14 @@ when@test:
 when@prod:
     doctrine:
         orm:
-            auto_generate_proxy_classes: false
-            proxy_dir: '%kernel.build_dir%/doctrine/orm/Proxies'
-            query_cache_driver:
-                type: pool
-                pool: doctrine.system_cache_pool
-            result_cache_driver:
-                type: pool
-                pool: doctrine.result_cache_pool
+            auto_generate_proxy_classes: true
+            naming_strategy: doctrine.naming_strategy.underscore
+            mappings:
+                App:
+                    type: annotation
+                    dir: '%kernel.project_dir%/src/Entity'
+                    prefix: 'App\Entity'
+                    is_bundle: false
 
     framework:
         cache:
