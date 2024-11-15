@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Books{% endblock %}
+
+{% block body %}
+    <h1>Books</h1>
+
+    <div class="books">
+        {% for book in pagerfanta.currentPageResults %}
+            <div class="book">
+                <h2>{{ book.title }}</h2>
+                <p>{{ book.shortDescription }}</p>
+                <p><a href="{{ path('book_detail', {'id': book.id}) }}">Подробнее</a></p>
+            </div>
+        {% else %}
+            <p>No books found.</p>
+        {% endfor %}
+    </div>
+
+    <div class="pagination">
+        {% if pagerfanta.hasPreviousPage %}
+            <a href="{{ path('books_index', {'page': pagerfanta.previousPage}) }}">Previous</a>
+        {% endif %}
+
+        <span>Page {{ pagerfanta.currentPage }} of {{ pagerfanta.nbPages }}</span>
+
+        {% if pagerfanta.hasNextPage %}
+            <a href="{{ path('books_index', {'page': pagerfanta.nextPage}) }}">Next</a>
+        {% endif %}
+    </div>
+{% endblock %}
